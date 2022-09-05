@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <script src="app.js" defer></script>
     <title>H-Gallery</title>
 </head>
+
 <body>
     <header>
         <img src="assets/images/logo.png" alt="logo" id="logo" width="170px">
@@ -32,18 +36,99 @@
 
         <div id="search">
             <input type="search" placeholder="Search..." name="search" id="search-btn">
-            <p>Categorey</p>
+            <img src="assets/images/search.svg" alt="">
+            <!-- <i class="fa fa-search"></i> -->
+        </div>
+
+        <div id="categorey">
+            <select name="" id="">
+                <option value="">Background</option>
+                <option value="">Nature</option>
+                <option value="">Education</option>
+                <option value="">Animals</option>
+                <option value="">Computer</option>
+                <option value="" selected>Science</option>
+            </select>
         </div>
         <div id="gallery">
-            <img src="assets/images/test.jpg" alt="" width="400px">
-            <img src="assets/images/test.jpg" alt="" width="400px">
-            <img src="assets/images/test.jpg" alt="" width="400px">
-            <img src="assets/images/test.jpg" alt="" width="400px">
-            <img src="assets/images/test.jpg" alt="" width="400px">
-            <img src="assets/images/test.jpg" alt="" width="400px">
-            <img src="assets/images/test.jpg" alt="" width="400px">
-            <img src="assets/images/test.jpg" alt="" width="400px">
-            <img src="assets/images/test.jpg" alt="" width="400px">
+            
+            <div class="card">
+                <div class="card-img"></div>
+                <div class="card-details">
+                    <img src="assets/images/profile.jpg" alt="">
+                    <h4>By: Nasser Awwad</h4>
+                    <div class="interaction">
+                        <ul>
+                            <li>
+                                <p class="number">1000</p>
+                                <p class="type">Likes</p>
+                            </li>
+                            <li>
+                                <p class="number">2500</p>
+                                <p class="type">Views</p>
+                            </li>
+                            <li>
+                                <p class="number">422</p>
+                                <p class="type">Downloads</p>
+                            </li>
+                            
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img"></div>
+                <div class="card-details">
+                    <img src="assets/images/profile.jpg" alt="">
+                    <h4>By: Nasser Awwad</h4>
+                    <div class="interaction">
+                        <ul>
+                            <li>
+                                <p class="number">1000</p>
+                                <p class="type">Likes</p>
+                            </li>
+                            <li>
+                                <p class="number">2500</p>
+                                <p class="type">Views</p>
+                            </li>
+                            <li>
+                                <p class="number">422</p>
+                                <p class="type">Downloads</p>
+                            </li>
+                            
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img"></div>
+                <div class="card-details">
+                    <img src="assets/images/profile.jpg" alt="">
+                    <h4>By: Nasser Awwad</h4>
+                    <div class="interaction">
+                        <ul>
+                            <li>
+                                <p class="number">1000</p>
+                                <p class="type">Likes</p>
+                            </li>
+                            <li>
+                                <p class="number">2500</p>
+                                <p class="type">Views</p>
+                            </li>
+                            <li>
+                                <p class="number">422</p>
+                                <p class="type">Downloads</p>
+                            </li>
+                            
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            
+
         </div>
 
     </main>
@@ -52,4 +137,5 @@
 
     </footer>
 </body>
+
 </html>
