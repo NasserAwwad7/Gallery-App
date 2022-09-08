@@ -1,20 +1,22 @@
 const main = document.querySelector("main");
+const gallery = document.getElementById("gallery");
+let session = window.localStorage;
+if (session.getItem("page") === null){
+    session.setItem("page", "1");
+}
 
 searchSubmit();
 
-const paginationElements = document.querySelectorAll(".pag-element");
-paginationElements.forEach(element=>{
-    element.addEventListener("click",()=>{
-        
-    })
-})
+
+
+
+
 
 
 function createGallery(data) {
 
-    const gallery = document.createElement("div");
-    gallery.setAttribute("id", "gallery");
-    main.appendChild(gallery);
+
+    gallery.innerHTML="";
     data.hits.forEach(element => {
         const card = document.createElement("div");
         card.setAttribute("class", "card");
@@ -65,18 +67,32 @@ function createPaginantion() {
     pagination.innerHTML =
         `
     <div id="pagination">
-            <a href="" class="pag-element-words">Previous</a>
-            <a href="" class="pag-element">1</a>
-            <a href="" class="pag-element">2</a>
-            <a href="" class="pag-element">3</a>
-            <a href="" class="pag-element">4</a>
-            <a href="" class="pag-element">5</a>
-            <a href="" class="pag-element">6</a>
-            <a href="" class="pag-element-words">Next</a>
+            <p class="pag-element-words">Previous</p>
+            <p class="pag-element">1</p>
+            <p class="pag-element">2</p>
+            <p class="pag-element">3</p>
+            <p class="pag-element">4</p>
+            <p class="pag-element">5</p>
+            <p class="pag-element">6</p>
+            <p class="pag-element-words">Next</p>
         </div>
     `;
 
     main.appendChild(pagination);
+
+    const paginationElements = document.querySelectorAll(".pag-element");
+    console.log(paginationElements);
+    paginationElements.forEach(element=>{
+        element.addEventListener("click",()=>{
+            const pageNumber = element.innerHTML;
+            const pagination = document.getElementById("pagination");
+            pagination.remove();
+            session.setItem("page", pageNumber);
+            gallery.innerHTML="<img src='assets/images/loading.gif' id='loading'></img>";
+            searchSubmit(pageNumber);
+    
+        })
+    });
 }
 
 function searchSubmit() {
@@ -85,12 +101,12 @@ function searchSubmit() {
         let split2 = split1.split("&");
         search = split2[0].split("=")[1];
         categ = split2[1].split("=")[1];
-        console.log(search, categorey);
-
         fetchApi(search, categ);
     }
-    else
+    else{
         fetchApi();
+    }
+
 }
 function hoverCard() {
     const card = document.querySelectorAll(".card");
@@ -123,7 +139,8 @@ function hoverCard() {
     }
 }
 
-function fetchApi(search = "red", categorey = "science", page = 1) {
+function fetchApi(search = "red", categorey = "science", page = session.getItem("page")) {
+    gallery.innerHTML="<img src='assets/images/loading.gif' id='loading'></img>";
     fetch(`https://pixabay.com/api/?key=29705334-867bd7546cfa2f4ae7f65a682&page=${page}&per_page=9&q=${search}&category=${categorey}`)
         .then((response) => response.json())
         .then((data) => {
@@ -131,3 +148,5 @@ function fetchApi(search = "red", categorey = "science", page = 1) {
             createPaginantion();
         }).then(hoverCard);
 }
+
+

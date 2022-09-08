@@ -64,7 +64,6 @@ nav {
 #search form {
   display: inline;
   background-color: white;
-  
 }
 
 #search-btn {
@@ -256,6 +255,22 @@ i {
   background-color: rgb(180, 180, 180);
 }
 
+
+#loading{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+#selected{
+  background-color: #082137;
+}
+
+
 footer{
   margin-top: 20rem;
+  position: relative;
+  bottom: 0;
+  height: 250px;
 }
